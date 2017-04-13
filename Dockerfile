@@ -4,9 +4,11 @@ ARG POSTGRES_VERSION=9.6
 #
 # Inherited variables from base image
 #
-#ENV POSTGRES_USER monkey_user      # superuser name
-#ENV POSTGRES_PASSWORD monkey_pass  # superuser password
-#ENV POSTGRES_DB monkey_db          # custom database owned by ${POSTGRES_USER}
+#ENV PGDATA /var/lib/postgresql/data  # root directory for PostgreSQL data
+#
+#ENV POSTGRES_USER monkey_user        # superuser name
+#ENV POSTGRES_PASSWORD monkey_pass    # superuser password
+#ENV POSTGRES_DB monkey_db            # custom database owned by ${POSTGRES_USER}
 
 #
 # master/slave
