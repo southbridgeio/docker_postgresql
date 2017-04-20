@@ -84,6 +84,11 @@ else
     exit
   fi
 
+  if [[ -n "${REPLICATION_UPSTREAM_HOST_IP}" ]]; then
+    echo "[custom-entrypoint/set ip addres] REPLICATION_UPSTREAM_HOST set to $REPLICATION_UPSTREAM_HOST_IP"
+    REPLICATION_UPSTREAM_HOST=${REPLICATION_UPSTREAM_HOST_IP}
+  fi
+
 #  echo '[custom-entypoint/slave] copy recovery.conf'
 #  cp "${RECOVERY_TEMPLATE_CONFIG_FILE}" "${RECOVERY_CONFIG_FILE}"
 
