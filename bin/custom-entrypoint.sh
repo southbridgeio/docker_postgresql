@@ -102,6 +102,7 @@ else
 
   echo '[custom-entrypoint/slave] copy master database'
   PGPASSWORD=${REPLICATION_PASS} pg_basebackup -h "${REPLICATION_UPSTREAM_HOST}" -U "${REPLICATION_USER}" -P -R -D "${PGDATA}"
+  echo "trigger_file=${PGDATA}/start_master" >> "${PGDATA}/recovery.conf"
 
   pg_ctl -D "${PGDATA}" -w start
 fi
