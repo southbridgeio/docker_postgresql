@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Southbridge PostgreSQL backup script by Igor Olemskoi <igor@southbridge.ru> (based on AutoMySQLBackup)
 
