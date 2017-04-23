@@ -81,6 +81,9 @@ bgwriter_lru_multiplier = 10.0    # 0-10.0 multipler on buffers scanned/round
 # Не надо диски даже ssd checkpoints мучать:
 max_wal_size = 12GB
 checkpoint_timeout  = 60min
+
+# Repliction settings
+max_wal_senders = 5
 wal_keep_segments = 256
 
 # Для лучшего понимания, что на базе творится:
