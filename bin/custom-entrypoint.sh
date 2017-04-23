@@ -155,7 +155,7 @@ else
   # build and copy recovery.conf
   # --
 
-  if [[ -z "${REPLICATION_UPSTREAM_HOST}" -a -z "${REPLICATION_UPSTREAM_HOST_IP}" ]]; then
+  if [[ -z "${REPLICATION_UPSTREAM_HOST}" && -z "${REPLICATION_UPSTREAM_HOST_IP}" ]]; then
     echo '[!ERROR!] instance ought to be a slave, but $REPLICATION_UPSTREAM_HOST or $REPLICATION_UPSTREAM_HOST_IP is not set'
     exit
   fi
