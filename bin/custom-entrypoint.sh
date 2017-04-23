@@ -22,7 +22,7 @@ echo '[custom-entrypoint] enter'
 
 
 echo '[custom-entrypoint] check whether is master instance or not'
-if [[ "x$(hostname)" == "x${REPLICATION_UPSTREAM_HOST}" -o "x$HOST)" == "x${REPLICATION_UPSTREAM_HOST_IP}" ]]; then
+if [[ "x$(hostname)" == "x${REPLICATION_UPSTREAM_HOST}" || "x$HOST" == "x${REPLICATION_UPSTREAM_HOST_IP}" ]]; then
   echo '  ... master'
   MASTER_INSTANCE=true
 else
