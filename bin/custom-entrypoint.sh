@@ -22,7 +22,7 @@ echo '[custom-entrypoint] enter'
 
 
 echo '[custom-entrypoint] check whether is master instance or not'
-if [[ "x$(hostname)" == "x${REPLICATION_UPSTREAM_HOST}" ]]; then
+if [[ "x$(hostname)" == "x${REPLICATION_UPSTREAM_HOST}" -o "x$HOST)" == "x${REPLICATION_UPSTREAM_HOST_IP}" ]]; then
   echo '  ... master'
   MASTER_INSTANCE=true
 else
@@ -154,8 +154,9 @@ else
   # --
   # build and copy recovery.conf
   # --
-  if [[ -z "${REPLICATION_UPSTREAM_HOST}" ]]; then
-    echo '[!ERROR!] instance ought to be a slave, but $REPLICATION_UPSTREAM_HOST is not set'
+
+  if [[ -z "${REPLICATION_UPSTREAM_HOST}" -a -z "${REPLICATION_UPSTREAM_HOST_IP}" ]]; then
+    echo '[!ERROR!] instance ought to be a slave, but $REPLICATION_UPSTREAM_HOST or $REPLICATION_UPSTREAM_HOST_IP is not set'
     exit
   fi
 
