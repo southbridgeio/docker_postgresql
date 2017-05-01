@@ -40,5 +40,6 @@ COPY conf/* /usr/local/etc/
 COPY bin/custom-entrypoint.sh /docker-entrypoint-initdb.d/
 COPY bin/postgresql-backup.sh /usr/local/bin/
 COPY bin/postgresql-backup.conf.dist /usr/local/etc/
+RUN touch /root/.postgresql
 
 VOLUME /var/backups/postgresql
