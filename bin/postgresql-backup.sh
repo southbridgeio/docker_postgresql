@@ -453,14 +453,20 @@ then
 else
 	if [ -s "$LOGERR" ]
 		then
-			cat "$LOGFILE"
-			echo
-			echo "###### WARNING ######"
-			echo "Errors reported during AutoPostgreSQLBackup execution.. Backup failed"
-			echo "Error log below.."
-			cat "$LOGERR"
-	else
-		cat "$LOGFILE"
+		    echo "###### STDERR LOG WARNING ######"
+		    echo "STDERR written to during mongodump execution."
+		    echo "Errors reported during AutoPostgreSQLBackup execution.. Backup failed"
+		    echo "--- start stdout log ---"
+		    cat "$LOGFILE"
+		    echo "--- finish stdout log ---"
+		    echo
+		    echo "--- start stderr log ---"
+		    cat "$LOGERR"
+		    echo "--- finish stderr log ---"
+		else
+		    echo "--- start stdout log ---"
+		    cat "$LOGFILE"
+		    echo "--- finish stdout log ---"
 	fi	
 fi
 
